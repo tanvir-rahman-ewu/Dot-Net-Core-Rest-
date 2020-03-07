@@ -5,20 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace RestAPI.Controllers.V1
+namespace RestAPI.Controllers
 {
-  
     [ApiController]
     public class DefaultController : ControllerBase
     {
-        // GET: api/Default
-        [HttpGet ("api/v1/Getlist")]
-        [ApiExplorerSettings(GroupName = "v1")]
-        public IEnumerable<string> Get()
+        [HttpGet("api/[controller]/{name}/{age}")]
+        public string get(string name, string age)
         {
-            return new string[] { "value1", "value2" };
+            return name + "/" + age;
         }
-
-      
     }
 }
